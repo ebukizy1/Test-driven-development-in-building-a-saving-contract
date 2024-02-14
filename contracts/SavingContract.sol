@@ -34,6 +34,7 @@ contract SavingContract {
   }
 
   function sendOutSaving(address _address, uint _amount ) external {
+        require(msg.sender != address(0), "no zero address call");
 
     require(_amount > 0, "can't send zero value");
     savings[msg.sender] -= _amount;
